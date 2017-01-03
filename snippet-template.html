@@ -1,0 +1,27 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src=":pageAddress:js/fb-gallery.js"></script>
+  <link rel="stylesheet" href=":pageAddress:css/fb-gallery.css">
+</head>
+
+<body>
+
+<div class="row callout">
+  <div class="medium-1 columns app-button"><button class="button tiny" id="app-previous">&laquo;</button></div>
+  <div class="medium-10 columns">
+    <div class="app-outer">
+      <div class="app-inner"></div>
+    </div>
+  </div>
+  <div class="medium-1 columns app-button"><button class="button tiny" id="app-next">&raquo;</button></div>
+</div>
+
+<script>
+  FBPhotoExplorer.init(:albumId:);
+  $("#app-next").click(function() { FBPhotoExplorer.next(); });
+  $("#app-previous").click(function() { FBPhotoExplorer.previous(); });
+</script>
+
+</body>
+</html>

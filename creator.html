@@ -1,0 +1,239 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Facebook Slideshow Gallery Creator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Piotr Walkiewicz">
+
+  <link rel="stylesheet" href="foundation/css/foundation.css">
+  <link rel="stylesheet" href="foundation/foundation-icons/foundation-icons.css">
+  <script src="foundation/js/vendor/jquery.js"></script>
+</head>
+
+<body>
+<script src="js/creator.js"></script>
+
+<div class="top-bar">
+  <div class="row">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">Facebook Slideshow Gallery Creator</li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+
+    </div>
+  </div>
+</div>
+
+<div class="app-vspace"></div>
+
+<div class="row">
+  <div class="medium-4 columns">
+    <h4>Input data</h4>
+    <div class="row">&nbsp;</div>
+    <form>
+      <div class="row">
+        <div class="medium-12 columns">
+          <label>Page Id
+            <input type="text" placeholder="Page Id" />
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-12 columns">
+          <button type="button" class="button">Accept</button>
+          <button type="button" class="button secondary">Default</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="medium-8 columns">
+    <h4>Select Album</h4>
+    <div id="app-albums">
+    </div>
+  </div>
+</div>
+
+<div class="app-vspace"></div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <h4>Preview</h4>
+    <div class="row callout">
+      <div class="medium-1 columns app-button"><button class="button tiny" id="app-previous">&laquo;</button></div>
+      <div class="medium-10 columns">
+        <div class="app-outer">
+          <div class="app-inner">
+
+          </div>
+        </div>
+      </div>
+      <div class="medium-1 columns app-button"><button class="button tiny" id="app-next">&raquo;</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="app-vspace"></div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <h4>Code</h4>
+    <div class="row callout">
+      <div class="app-code">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- For Foundation Icons, put this in your head -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="row full-width">
+    <div class="large-12 columns">
+      <i class="fi-laptop"></i>
+      <p>&copy; 2016</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: #2980b9;
+    padding: 1rem 4rem;
+    text-align: center;
+    color: #fff;
+    margin-top: 2rem;
+  }
+  .footer i {
+    font-size: 24px;
+  }
+  .footer p, .footer a {
+    font-weight: 300;
+    font-size: .8em;
+    color: #fff;
+  }
+
+  form input {
+    font-size:0.8rem !important;
+  }
+  form label {
+    font-size:0.8rem !important;
+  }
+  .app-button {
+    text-align: center;
+    line-height: 150px !important;
+  }
+  .app-div {
+    line-height: 150px !important;
+    text-align: center;
+  }
+  .app-image {
+    box-shadow: 0px 1px 10px #000;
+    transition: .5s;
+  }
+  .app-image:hover {
+    box-shadow: 0px 1px 20px #1583cc;
+  }
+  .app-outer {
+    width: 900px;
+    overflow:hidden;
+    margin: 0 auto;
+  }
+  .app-inner {
+    position: relative;
+    width: 0px;
+  }
+  .app-loader {
+    position: relative;
+    width: 900px;
+    background: #eee;
+    height:150px;
+  }
+
+
+
+  .app-loader div {
+    -webkit-animation: spin .7s linear infinite;
+    animation: spin .7s linear infinite;
+    color : #fff;
+    text-align: center;
+    line-height: 150px;
+    font-size: 40px;
+  }
+
+  @keyframe spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+
+
+  .app-photos {
+    width: 900px;
+    margin: 0px !important;
+    height: 150px;
+    display:inline-block;
+  }
+  .app-album-photo:hover {
+    cursor: pointer;
+  }
+  .app-album-photo img,.app-album-photo p {
+    transition: .5s;
+  }
+  .app-album-photo:hover img {
+    box-shadow: 0px 1px 12px #1583cc;
+  }
+  .app-album-photo:hover p {
+    color: #1583cc;
+  }
+  .app-album-photo-selected {
+    font-weight: bold;
+  }
+
+
+  .app-vspace {
+    display: block;
+    height: 2rem;
+  }
+  .app-code {
+    font-family: Courier;
+    font-size: 0.8rem;
+    white-space: pre;
+  }
+</style>
+
+<script>
+
+// Explorer
+$("#app-next").click(function() { FBPhotoExplorer.next();});
+$("#app-previous").on('click', function() { FBPhotoExplorer.previous();});
+
+// Creator
+$("button[type='button']:nth-child(2)").click(function() {
+  $("form > div:nth-child(1) input[type='text']").val(19292868552);
+});
+$("button[type='button']:nth-child(1)").click(function() {
+  Creator.getAlbums(
+    $("form > div:nth-child(1) input[type='text']").val()
+  );
+});
+</script>
+<script src="foundation/js/vendor/what-input.js"></script>
+<script src="foundation/js/vendor/foundation.js"></script>
+<script src="foundation/js/app.js"></script>
+</body>
+</html>

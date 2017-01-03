@@ -1,0 +1,90 @@
+
+.app-button {
+  text-align: center;
+  line-height: 150px !important;
+}
+.app-div {
+  line-height: 150px !important;
+  text-align: center;
+}
+.app-image {
+  box-shadow: 0px 1px 10px #000;
+  transition: .5s;
+}
+.app-image:hover {
+  box-shadow: 0px 1px 20px #1583cc;
+}
+.app-outer {
+  width: 900px;
+  overflow:hidden;
+  margin: 0 auto;
+}
+.app-inner {
+  position: relative;
+  width: 0px;
+}
+.app-loader {
+  position: relative;
+  width: 900px;
+  background: #eee;
+  height:150px;
+}
+
+
+
+.app-loader div {
+  -webkit-animation: spin .7s linear infinite;
+  animation: spin .7s linear infinite;
+  color : #fff;
+  text-align: center;
+  line-height: 150px;
+  font-size: 40px;
+}
+
+@keyframe spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+
+.app-photos {
+  width: 900px;
+  margin: 0px !important;
+  height: 150px;
+  display:inline-block;
+}
+.app-album-photo:hover {
+  cursor: pointer;
+}
+.app-album-photo img,.app-album-photo p {
+  transition: .5s;
+}
+.app-album-photo:hover img {
+  box-shadow: 0px 1px 12px #1583cc;
+}
+.app-album-photo:hover p {
+  color: #1583cc;
+}
+.app-album-photo-selected {
+  font-weight: bold;
+}
+
+
+.app-vspace {
+  display: block;
+  height: 2rem;
+}
+.app-code {
+  font-family: Courier;
+  font-size: 0.8rem;
+  white-space: pre;
+}

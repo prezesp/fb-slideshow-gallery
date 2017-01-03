@@ -49,8 +49,7 @@ var Creator = {
     $.get('snippet-template.html', function(data) {
       var pageAddress = window.location.href.replace('creator.html', '');
       data = data.replace(':albumId:', albumId);
-      data = data.replace(':pageAddress:', pageAddress);
-      data = data.replace(':pageAddress:', pageAddress);
+      data = data.replace(/:pageAddress:/g, pageAddress);
       $(".app-code").text(data).html();
     });
     $(".app-album-photo-selected").each(function(i, obj) {

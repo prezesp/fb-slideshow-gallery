@@ -1,5 +1,9 @@
+<!doctype html>
 <html>
 <head>
+  <link rel="stylesheet" href=":pageAddress:foundation/css/foundation.css">
+  <link rel="stylesheet" href=":pageAddress:foundation/foundation-icons/foundation-icons.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src=":pageAddress:js/fb-gallery.js"></script>
   <link rel="stylesheet" href=":pageAddress:css/fb-gallery.css">
@@ -18,7 +22,7 @@
 </div>
 
 <script>
-  FBPhotoExplorer.init(:albumId:);
+  FBPhotoExplorer.init(':albumId:');
   $("#app-next").click(function() { FBPhotoExplorer.next(); });
   $("#app-previous").click(function() { FBPhotoExplorer.previous(); });
 </script>

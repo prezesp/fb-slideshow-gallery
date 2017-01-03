@@ -89,7 +89,7 @@ var FBPhotoExplorer = {
     var that = this;
     $.ajax({
         type: 'GET',
-        url: 'example.php?album='+this.album_id+get_path
+        url: 'server.php?album='+this.album_id+get_path
     }).done(function (response) {
       if (response['next'] == null) {
         that.loadedAll = true;
@@ -114,7 +114,6 @@ var FBPhotoExplorer = {
         div.append(link);
         big_div.append(div)
       }
-      //for (var i=0; i < lim - response['data'].length; i++)
       for (var i=0; i < 7 - (response['data'].length % 6) && response['data'].length % 6 != 0; i++)
       {
         var div = $('<div/>').attr('class', 'medium-2 columns');
